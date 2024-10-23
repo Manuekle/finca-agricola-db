@@ -36,6 +36,15 @@ BEGIN
 END//
 DELIMITER ;
 
+-- SHOW DDL
+DELIMITER //
+CREATE PROCEDURE sp_show_clientes_ddl()
+BEGIN
+	select clie_id, clie_nombre
+    from clientes;
+END//
+DELIMITER ;
+
 -- DELETE
 DELIMITER //
 CREATE PROCEDURE sp_delete_clientes(
