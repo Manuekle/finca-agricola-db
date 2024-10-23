@@ -36,6 +36,14 @@ BEGIN
 END//
 DELIMITER ;
 
+-- SHOW DDL
+DELIMITER //
+CREATE PROCEDURE sp_show_ventas_ddl()
+BEGIN
+    SELECT vent_id, vent_monto FROM ventas;
+END//
+DELIMITER ;
+
 -- DELETE
 DELIMITER //
 CREATE PROCEDURE sp_delete_ventas(
