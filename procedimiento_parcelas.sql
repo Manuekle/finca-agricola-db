@@ -21,6 +21,15 @@ BEGIN
 END//
 DELIMITER ;
 
+-- Selecciona unicamente el id y el nombre de los provedores
+DELIMITER //
+CREATE PROCEDURE sp_show_parcelas_ddl()
+BEGIN
+	select parc_id, concat(parc_tamano,' ',parc_ubicacion) as descripcion
+    from parcelas;
+END//
+DELIMITER ;
+
 -- UPDATE
 DELIMITER //
 CREATE PROCEDURE sp_update_parcelas(
