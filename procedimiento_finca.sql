@@ -38,6 +38,14 @@ BEGIN
 END//
 DELIMITER ;
 
+-- SHOW DDL
+DELIMITER //
+CREATE PROCEDURE sp_show_finca_ddl()
+BEGIN
+    SELECT finc_id ,finc_nombre from finca;
+END//
+DELIMITER ;
+
 --  DELETE
 DELIMITER //
 CREATE PROCEDURE sp_delete_finca(
