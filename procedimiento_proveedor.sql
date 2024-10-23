@@ -19,6 +19,15 @@ BEGIN
 END//
 DELIMITER ;
 
+-- SHOW DLL
+DELIMITER //
+CREATE PROCEDURE sp_show_proveedores_ddl()
+BEGIN
+    SELECT prov_id, prov_nombre from proveedores;
+END//
+DELIMITER ;
+
+
 -- UPDATE
 DELIMITER //
 CREATE PROCEDURE sp_update_proveedores(
