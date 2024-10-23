@@ -7,6 +7,14 @@ BEGIN
 END//
 DELIMITER ;
 
+-- SHOW DDL
+DELIMITER //
+CREATE PROCEDURE sp_show_productos_ddl()
+BEGIN
+    SELECT prod_id, prod_nombre FROM productos;
+END//
+DELIMITER ;
+
 -- DELETE
 DELIMITER //
 CREATE PROCEDURE sp_delete_productos(
