@@ -1,13 +1,13 @@
 -- INSERT
 DELIMITER //
 CREATE PROCEDURE sp_insert_proveedores(
-    IN v_pro_nombre VARCHAR(100),
-    IN v_pro_contacto VARCHAR(255),
-    IN v_pro_tipo_insumo VARCHAR(100)
+    IN v_prov_nombre VARCHAR(100),
+    IN v_prov_producto VARCHAR(255),
+    IN v_prov_telefono VARCHAR(100)
 )
 BEGIN
-    INSERT INTO proveedores (pro_nombre, pro_contacto, pro_tipo_insumo)
-    VALUES (v_pro_nombre, v_pro_contacto, v_pro_tipo_insumo);
+    INSERT INTO proveedores (prov_nombre, prov_producto, prov_telefono)
+    VALUES (v_prov_nombre, v_prov_producto, v_prov_telefono);
 END//
 DELIMITER ;
 
@@ -27,30 +27,29 @@ BEGIN
 END//
 DELIMITER ;
 
-
 -- UPDATE
 DELIMITER //
 CREATE PROCEDURE sp_update_proveedores(
-    IN v_pro_id INT,
-    IN v_pro_nombre VARCHAR(100),
-    IN v_pro_contacto VARCHAR(255),
-    IN v_pro_tipo_insumo VARCHAR(100)
+    IN v_prov_id INT,
+    IN v_prov_nombre VARCHAR(100),
+    IN v_prov_producto VARCHAR(255),
+    IN v_prov_telefono VARCHAR(100)
 )
 BEGIN
     UPDATE proveedores
-    SET pro_nombre = v_pro_nombre, 
-        pro_contacto = v_pro_contacto,
-        pro_tipo_insumo = v_pro_tipo_insumo
-    WHERE pro_id = v_pro_id;
+    SET prov_nombre = v_prov_nombre, 
+        prov_producto = v_prov_producto,
+        prov_telefono = v_prov_telefono
+    WHERE prov_id = v_prov_id;
 END//
 DELIMITER ;
 
 -- DELETE
 DELIMITER //
 CREATE PROCEDURE sp_delete_proveedores(
-    IN v_pro_id INT
+    IN v_prov_id INT
 )
 BEGIN
-    DELETE FROM proveedores WHERE pro_id = v_pro_id;
+    DELETE FROM proveedores WHERE prov_id = v_prov_id;
 END//
 DELIMITER ;
