@@ -8,7 +8,7 @@ CREATE PROCEDURE sp_insert_parcelas(
     IN v_par_estado VARCHAR(50)
 )
 BEGIN
-    INSERT INTO parcelas (fin_id, par_ubicacion, par_tamano, par_fecha_revision, par_estado)
+    INSERT INTO parcelas (fin_id, parc_ubicacion, parc_tamano, parc_fecha_revision, parc_estado)
     VALUES (v_fin_id, v_par_ubicacion, v_par_tamano, v_par_fecha_revision, v_par_estado);
 END//
 DELIMITER ;
@@ -43,11 +43,11 @@ CREATE PROCEDURE sp_update_parcelas(
 BEGIN
     UPDATE parcelas
     SET fin_id = v_fin_id, 
-        par_ubicacion = v_par_ubicacion,
-        par_tamano = v_par_tamano,
-        par_fecha_revision = v_par_fecha_revision,
-        par_estado = v_par_estado
-    WHERE par_id = v_par_id;
+        parc_ubicacion = v_par_ubicacion,
+        parc_tamano = v_par_tamano,
+        parc_fecha_revision = v_par_fecha_revision,
+        parc_estado = v_par_estado
+    WHERE parc_id = v_par_id;
 END//
 DELIMITER ;
 
@@ -57,6 +57,6 @@ CREATE PROCEDURE sp_delete_parcelas(
     IN v_par_id INT
 )
 BEGIN
-    DELETE FROM parcelas WHERE par_id = v_par_id;
+    DELETE FROM parcelas WHERE parc_id = v_par_id;
 END//
 DELIMITER ;
