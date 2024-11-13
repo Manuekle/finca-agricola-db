@@ -1,14 +1,12 @@
 -- INSERT
 DELIMITER //
 CREATE PROCEDURE sp_insert_riego(
-    IN v_ri_id_parcela INT,
-    IN v_ri_fecha DATE,
-    IN v_ri_duracion DECIMAL(5,2),
-    IN v_ri_cantidad DECIMAL(10,2)
+    IN v_parc_id INT,
+    IN v_rieg_fecha DATE
 )
 BEGIN
-    INSERT INTO riego (ri_id_parcela, ri_fecha, ri_duracion, ri_cantidad)
-    VALUES (v_ri_id_parcela, v_ri_fecha, v_ri_duracion, v_ri_cantidad);
+    INSERT INTO riego (rieg_fecha, parc_id)
+    VALUES (v_parc_id, v_rieg_fecha);
 END//
 DELIMITER ;
 
@@ -23,28 +21,24 @@ DELIMITER ;
 -- UPDATE
 DELIMITER //
 CREATE PROCEDURE sp_update_riego(
-    IN v_ri_id INT,
-    IN v_ri_id_parcela INT,
-    IN v_ri_fecha DATE,
-    IN v_ri_duracion DECIMAL(5,2),
-    IN v_ri_cantidad DECIMAL(10,2)
+    IN v_rieg_id INT,
+    IN v_parc_id INT,
+    IN v_rieg_fecha DATE
 )
 BEGIN
     UPDATE riego
-    SET ri_id_parcela = v_ri_id_parcela,
-        ri_fecha = v_ri_fecha,
-        ri_duracion = v_ri_duracion,
-        ri_cantidad = v_ri_cantidad
-    WHERE ri_id = v_ri_id;
+    SET parc_id = v_parc_id,
+        rieg_fecha = v_rieg_fecha
+    WHERE rieg_id = v_rieg_id;
 END//
 DELIMITER ;
 
 -- DELETE
 DELIMITER //
 CREATE PROCEDURE sp_delete_riego(
-    IN v_ri_id INT
+    IN v_rieg_id INT
 )
 BEGIN
-    DELETE FROM riego WHERE ri_id = v_ri_id;
+    DELETE FROM riego WHERE rieg_id = v_rieg_id;
 END//
 DELIMITER ;
