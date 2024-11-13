@@ -5,7 +5,7 @@ CREATE PROCEDURE sp_insert_riego(
     IN v_rieg_fecha DATE
 )
 BEGIN
-    INSERT INTO riego (rieg_fecha, parc_id)
+    INSERT INTO riego (parc_id, rieg_fecha)
     VALUES (v_parc_id, v_rieg_fecha);
 END//
 DELIMITER ;
