@@ -1,4 +1,4 @@
--- INSERT
+-- INSERT.
 DELIMITER //
 CREATE PROCEDURE sp_insert_empleados(
     IN v_empl_nombre VARCHAR(100),
