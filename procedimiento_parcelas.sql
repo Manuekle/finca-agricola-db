@@ -1,15 +1,13 @@
--- INSERT
+-- INSERT (con finc_id)
 DELIMITER //
 CREATE PROCEDURE sp_insert_parcelas(
-    IN v_fin_id INT,
+    IN v_par_tamano VARCHAR(255),
     IN v_par_ubicacion VARCHAR(255),
-    IN v_par_tamano DECIMAL(10,2),
-    IN v_par_fecha_revision DATE,
-    IN v_par_estado VARCHAR(50)
+    IN v_finc_id INT
 )
 BEGIN
-    INSERT INTO parcelas (fin_id, parc_ubicacion, parc_tamano, parc_fecha_revision, parc_estado)
-    VALUES (v_fin_id, v_par_ubicacion, v_par_tamano, v_par_fecha_revision, v_par_estado);
+    INSERT INTO parcelas (parc_tamano, parc_ubicacion, finc_id)
+    VALUES (v_par_tamano, v_par_ubicacion, v_finc_id);
 END//
 DELIMITER ;
 
@@ -21,32 +19,28 @@ BEGIN
 END//
 DELIMITER ;
 
--- Selecciona unicamente el id y el nombre de los provedores
+-- Selecciona únicamente el id y la descripción de las parcelas
 DELIMITER //
 CREATE PROCEDURE sp_show_parcelas_ddl()
 BEGIN
-	select parc_id, concat(parc_tamano,' ',parc_ubicacion) as descripcion
-    from parcelas;
+    SELECT parc_id, CONCAT(parc_tamano, ' ', parc_ubicacion) AS descripcion
+    FROM parcelas;
 END//
 DELIMITER ;
 
--- UPDATE
+-- UPDATE (con finc_id)
 DELIMITER //
 CREATE PROCEDURE sp_update_parcelas(
     IN v_par_id INT,
-    IN v_fin_id INT,
+    IN v_par_tamano VARCHAR(255),
     IN v_par_ubicacion VARCHAR(255),
-    IN v_par_tamano DECIMAL(10,2),
-    IN v_par_fecha_revision DATE,
-    IN v_par_estado VARCHAR(50)
+    IN v_finc_id INT
 )
 BEGIN
     UPDATE parcelas
-    SET fin_id = v_fin_id, 
+    SET parc_tamano = v_par_tamano, 
         parc_ubicacion = v_par_ubicacion,
-        parc_tamano = v_par_tamano,
-        parc_fecha_revision = v_par_fecha_revision,
-        parc_estado = v_par_estado
+        finc_id = v_finc_id
     WHERE parc_id = v_par_id;
 END//
 DELIMITER ;
